@@ -46,6 +46,7 @@ var (
 	}
 	// whitelistSliceGetters lists "struct.field" to add getter method
 	whitelistSliceGetters = map[string]bool{
+		"Player.SeasonTotals": true,
 	}
 )
 

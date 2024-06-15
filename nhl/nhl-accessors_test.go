@@ -9,8 +9,6 @@
 
 package nhl
 
-import "testing"
-
 func TestPlayer_GetBirthCity(tt *testing.T) {
 	p := &Player{}
 	p.GetBirthCity()
@@ -205,6 +203,16 @@ func TestPlayer_GetPosition(tt *testing.T) {
 	p.GetPosition()
 	p = nil
 	p.GetPosition()
+}
+
+func TestPlayer_GetSeasonTotals(tt *testing.T) {
+	zeroValue := []*Player_Total{}
+	p := &Player{SeasonTotals: zeroValue}
+	p.GetSeasonTotals()
+	p = &Player{}
+	p.GetSeasonTotals()
+	p = nil
+	p.GetSeasonTotals()
 }
 
 func TestPlayer_GetShootsCatches(tt *testing.T) {

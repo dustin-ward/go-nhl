@@ -1,5 +1,12 @@
 package nhl
 
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
 type Player struct {
 	PlayerID            *int                       `json:"playerId,omitempty"`
 	IsActive            *bool                      `json:"isActive,omitempty"`
@@ -47,16 +54,16 @@ type Player_FullTeamName struct {
 	SV      *string `json:"sk,omitempty"`
 }
 
-// func (p *Player) GetTeamName() string {
-// 	return p.FullTeamName.Default
-// }
+func (p *Player) GetTeamName() string {
+	return p.GetFullTeamName().GetDefault()
+}
 
 type Player_FirstName struct {
 	Default *string `json:"default,omitempty"`
 }
 
 // func (p *Player) GetFirstName() string {
-// 	return p.FirstName.Default
+// 	return p.GetFirstName().GetDefault()
 // }
 
 type Player_LastName struct {
@@ -129,4 +136,22 @@ type Player_Total struct {
 	ShorthandedPoints  *int                 `json:"shorthandedPoints,omitempty"`
 	Shots              *int                 `json:"shots,omitempty"`
 	TeamName           *Player_FullTeamName `json:"teamName,omitempty"`
+}
+
+func GetPlayer(id int) (*Player, error) {
+	url := fmt.Sprintf("%s/v1/player/%d/landing", baseURL, id)
+
+	resp, err := http.Get(url)
+	if err != nil {
+		return nil, fmt.Errorf("GetPlayer: %v", err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+
+	var p Player
+	if err := json.Unmarshal(body, &p); err != nil {
+		return &p, fmt.Errorf("GetPlayer: %v", err)
+	}
+
+	return &p, nil
 }

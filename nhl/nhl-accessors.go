@@ -185,6 +185,14 @@ func (p *Player) GetPosition() string {
 	return *p.Position
 }
 
+// GetSeasonTotals returns the SeasonTotals slice if it's non-nil, nil otherwise.
+func (p *Player) GetSeasonTotals() []*Player_Total {
+	if p == nil || p.SeasonTotals == nil {
+		return nil
+	}
+	return p.SeasonTotals
+}
+
 // GetShootsCatches returns the ShootsCatches field if it's non-nil, zero value otherwise.
 func (p *Player) GetShootsCatches() string {
 	if p == nil || p.ShootsCatches == nil {
