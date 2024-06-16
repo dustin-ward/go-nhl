@@ -39,14 +39,14 @@ var (
 	testTmpl   = template.Must(template.New("test").Parse(test))
 
 	// skipStructMethods lists "struct.method" combos to skip.
-	skipStructMethods = map[string]bool{
-	}
+	skipStructMethods = map[string]bool{}
 	// skipStructs lists structs to skip.
-	skipStructs = map[string]bool{
-	}
+	skipStructs = map[string]bool{}
 	// whitelistSliceGetters lists "struct.field" to add getter method
 	whitelistSliceGetters = map[string]bool{
-		"Player.SeasonTotals": true,
+		"Player.SeasonTotals":      true,
+		"Player.CurrentTeamRoster": true,
+		"Player.Last5Games":        true,
 	}
 )
 

@@ -8,7 +8,7 @@ import (
 )
 
 type Player struct {
-	PlayerID            *int                       `json:"playerId,omitempty"`
+	PlayerId            *int                       `json:"playerId,omitempty"`
 	IsActive            *bool                      `json:"isActive,omitempty"`
 	CurrentTeamId       *int                       `json:"currentTeamId,omitempty"`
 	CurrentTeamAbbrev   *string                    `json:"currentTeamAbbrev,omitempty"`
@@ -38,10 +38,10 @@ type Player struct {
 	ShopLink            *string                    `json:"shopLink,omitempty"`
 	TwitterLink         *string                    `json:"twitterLink,omitempty"`
 	WatchLink           *string                    `json:"watchLink,omitempty"`
-	// Last5Games _ `json:"last5Games"`
-	SeasonTotals []*Player_Total `json:"seasonTotals,omitempty"`
+	Last5Games          []*Player_Game             `json:"last5Games,omitempty"`
+	SeasonTotals        []*Player_Total            `json:"seasonTotals,omitempty"`
 	// Awards _ `json:"awards"`
-	// CurrentTeamRoster _ `json:"currentTeamRoster"`
+	CurrentTeamRoster []*Player `json:"currentTeamRoster,omitempty"`
 }
 
 type Player_FullTeamName struct {
@@ -115,31 +115,48 @@ type Player_CareerTotals struct {
 }
 
 type Player_Total struct {
-	Assists            *int                 `json:"assists,omitempty"`
-	AvgToi             *string              `json:"avgToi,omitempty"`
-	FaceoffWinningPctg *float64             `json:"faceoffWinningPctg,omitempty"`
-	GameTypeId         *int                 `json:"gameTypeId,omitempty"`
-	GameWinningGoals   *int                 `json:"gameWinningGoals,omitempty"`
-	GamesPlayed        *int                 `json:"gamesPlayed,omitempty"`
-	Goals              *int                 `json:"goals,omitempty"`
-	LeagueAbbrev       *string              `json:"leagueAbbrev,omitempty"`
-	OTGoals            *int                 `json:"otGoals,omitempty"`
-	PIM                *int                 `json:"pim,omitempty"`
-	PlusMinus          *int                 `json:"plusMinus,omitempty"`
-	Points             *int                 `json:"points,omitempty"`
-	PowerPlayGoals     *int                 `json:"powerPlayGoals,omitempty"`
-	PowerPlayPoints    *int                 `json:"powerPlayPoints,omitempty"`
-	Season             *int                 `json:"season,omitempty"`
-	Sequence           *int                 `json:"sequence,omitempty"`
-	ShootingPctg       *float64             `json:"shootingPctg,omitempty"`
-	ShorthandedGoals   *int                 `json:"shorthandedGoals,omitempty"`
-	ShorthandedPoints  *int                 `json:"shorthandedPoints,omitempty"`
-	Shots              *int                 `json:"shots,omitempty"`
-	TeamName           *Player_FullTeamName `json:"teamName,omitempty"`
+	Assists      *int                 `json:"assists,omitempty"`
+	Goals        *int                 `json:"goals,omitempty"`
+	GameTypeId   *int                 `json:"gameTypeId,omitempty"`
+	GamesPlayed  *int                 `json:"gamesPlayed,omitempty"`
+	LeagueAbbrev *string              `json:"leagueAbbrev,omitempty"`
+	PIM          *int                 `json:"pim,omitempty"`
+	Season       *int                 `json:"season,omitempty"`
+	Sequence     *int                 `json:"sequence,omitempty"`
+	TeamName     *Player_FullTeamName `json:"teamName,omitempty"`
+
+	// Skater specific fields
+
+	AvgToi             *string  `json:"avgToi,omitempty"`
+	FaceoffWinningPctg *float64 `json:"faceoffWinningPctg,omitempty"`
+	GameWinningGoals   *int     `json:"gameWinningGoals,omitempty"`
+	OTGoals            *int     `json:"otGoals,omitempty"`
+	PlusMinus          *int     `json:"plusMinus,omitempty"`
+	Points             *int     `json:"points,omitempty"`
+	PowerPlayGoals     *int     `json:"powerPlayGoals,omitempty"`
+	PowerPlayPoints    *int     `json:"powerPlayPoints,omitempty"`
+	ShootingPctg       *float64 `json:"shootingPctg,omitempty"`
+	ShorthandedGoals   *int     `json:"shorthandedGoals,omitempty"`
+	ShorthandedPoints  *int     `json:"shorthandedPoints,omitempty"`
+	Shots              *int     `json:"shots,omitempty"`
+
+	// Goalie specific fields
+
+	GamesStarted    *int     `json:"gamesStarted,omitempty"`
+	GoalsAgainst    *int     `json:"goalsAgainst,omitempty"`
+	GoalsAgainstAvg *float64 `json:"goalsAgainstAvg,omitempty"`
+	Losses          *int     `json:"losses,omitempty"`
+	OTLosses        *int     `json:"otLosses,omitempty"`
+	SavePctg        *float64 `json:"savePctg,omitempty"`
+	ShotsAgainst    *int     `json:"shotsAgainst,omitempty"`
+	Shutouts        *int     `json:"shutouts,omitempty"`
+	TimeOnIce       *string  `json:"timeOnIce,omitempty"`
+	Wins            *int     `json:"wins,omitempty"`
+	Ties            *int     `json:"ties,omitempty"`
 }
 
 func GetPlayer(id int) (*Player, error) {
-	url := fmt.Sprintf("%s/v1/player/%d/landing", baseURL, id)
+	url := fmt.Sprintf("%s/player/%d/landing", baseURL, id)
 
 	resp, err := http.Get(url)
 	if err != nil {

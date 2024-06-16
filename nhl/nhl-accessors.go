@@ -65,6 +65,14 @@ func (p *Player) GetCurrentTeamId() int {
 	return *p.CurrentTeamId
 }
 
+// GetCurrentTeamRoster returns the CurrentTeamRoster slice if it's non-nil, nil otherwise.
+func (p *Player) GetCurrentTeamRoster() []*Player {
+	if p == nil || p.CurrentTeamRoster == nil {
+		return nil
+	}
+	return p.CurrentTeamRoster
+}
+
 // GetDraftDetails returns the DraftDetails field.
 func (p *Player) GetDraftDetails() *Player_DraftDetails {
 	if p == nil {
@@ -153,6 +161,14 @@ func (p *Player) GetIsActive() bool {
 	return *p.IsActive
 }
 
+// GetLast5Games returns the Last5Games slice if it's non-nil, nil otherwise.
+func (p *Player) GetLast5Games() []*Player_Game {
+	if p == nil || p.Last5Games == nil {
+		return nil
+	}
+	return p.Last5Games
+}
+
 // GetLastName returns the LastName field.
 func (p *Player) GetLastName() *Player_LastName {
 	if p == nil {
@@ -161,12 +177,12 @@ func (p *Player) GetLastName() *Player_LastName {
 	return p.LastName
 }
 
-// GetPlayerID returns the PlayerID field if it's non-nil, zero value otherwise.
-func (p *Player) GetPlayerID() int {
-	if p == nil || p.PlayerID == nil {
+// GetPlayerId returns the PlayerId field if it's non-nil, zero value otherwise.
+func (p *Player) GetPlayerId() int {
+	if p == nil || p.PlayerId == nil {
 		return 0
 	}
-	return *p.PlayerID
+	return *p.PlayerId
 }
 
 // GetPlayerSlug returns the PlayerSlug field if it's non-nil, zero value otherwise.
@@ -433,6 +449,230 @@ func (p *Player_FullTeamName) GetSV() string {
 	return *p.SV
 }
 
+// GetAssists returns the Assists field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetAssists() int {
+	if p == nil || p.Assists == nil {
+		return 0
+	}
+	return *p.Assists
+}
+
+// GetCommonName returns the CommonName field.
+func (p *Player_Game) GetCommonName() *Player_Game_CommonName {
+	if p == nil {
+		return nil
+	}
+	return p.CommonName
+}
+
+// GetDecision returns the Decision field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetDecision() string {
+	if p == nil || p.Decision == nil {
+		return ""
+	}
+	return *p.Decision
+}
+
+// GetGameDate returns the GameDate field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetGameDate() string {
+	if p == nil || p.GameDate == nil {
+		return ""
+	}
+	return *p.GameDate
+}
+
+// GetGameID returns the GameID field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetGameID() int {
+	if p == nil || p.GameID == nil {
+		return 0
+	}
+	return *p.GameID
+}
+
+// GetGamesStarted returns the GamesStarted field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetGamesStarted() int {
+	if p == nil || p.GamesStarted == nil {
+		return 0
+	}
+	return *p.GamesStarted
+}
+
+// GetGameWinningGoals returns the GameWinningGoals field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetGameWinningGoals() int {
+	if p == nil || p.GameWinningGoals == nil {
+		return 0
+	}
+	return *p.GameWinningGoals
+}
+
+// GetGoals returns the Goals field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetGoals() int {
+	if p == nil || p.Goals == nil {
+		return 0
+	}
+	return *p.Goals
+}
+
+// GetGoalsAgainst returns the GoalsAgainst field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetGoalsAgainst() int {
+	if p == nil || p.GoalsAgainst == nil {
+		return 0
+	}
+	return *p.GoalsAgainst
+}
+
+// GetHomeRoadFlag returns the HomeRoadFlag field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetHomeRoadFlag() string {
+	if p == nil || p.HomeRoadFlag == nil {
+		return ""
+	}
+	return *p.HomeRoadFlag
+}
+
+// GetOpponentAbbrev returns the OpponentAbbrev field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetOpponentAbbrev() string {
+	if p == nil || p.OpponentAbbrev == nil {
+		return ""
+	}
+	return *p.OpponentAbbrev
+}
+
+// GetOpponentCommonName returns the OpponentCommonName field.
+func (p *Player_Game) GetOpponentCommonName() *Player_Game_CommonName {
+	if p == nil {
+		return nil
+	}
+	return p.OpponentCommonName
+}
+
+// GetOTGoals returns the OTGoals field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetOTGoals() int {
+	if p == nil || p.OTGoals == nil {
+		return 0
+	}
+	return *p.OTGoals
+}
+
+// GetPIM returns the PIM field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetPIM() int {
+	if p == nil || p.PIM == nil {
+		return 0
+	}
+	return *p.PIM
+}
+
+// GetPlusMinus returns the PlusMinus field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetPlusMinus() int {
+	if p == nil || p.PlusMinus == nil {
+		return 0
+	}
+	return *p.PlusMinus
+}
+
+// GetPoints returns the Points field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetPoints() int {
+	if p == nil || p.Points == nil {
+		return 0
+	}
+	return *p.Points
+}
+
+// GetPowerPlayGoals returns the PowerPlayGoals field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetPowerPlayGoals() int {
+	if p == nil || p.PowerPlayGoals == nil {
+		return 0
+	}
+	return *p.PowerPlayGoals
+}
+
+// GetPowerPlayPoints returns the PowerPlayPoints field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetPowerPlayPoints() int {
+	if p == nil || p.PowerPlayPoints == nil {
+		return 0
+	}
+	return *p.PowerPlayPoints
+}
+
+// GetSavePctg returns the SavePctg field.
+func (p *Player_Game) GetSavePctg() *float64 {
+	if p == nil {
+		return nil
+	}
+	return p.SavePctg
+}
+
+// GetShifts returns the Shifts field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetShifts() int {
+	if p == nil || p.Shifts == nil {
+		return 0
+	}
+	return *p.Shifts
+}
+
+// GetShorthandedGoals returns the ShorthandedGoals field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetShorthandedGoals() int {
+	if p == nil || p.ShorthandedGoals == nil {
+		return 0
+	}
+	return *p.ShorthandedGoals
+}
+
+// GetShorthandedPoints returns the ShorthandedPoints field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetShorthandedPoints() int {
+	if p == nil || p.ShorthandedPoints == nil {
+		return 0
+	}
+	return *p.ShorthandedPoints
+}
+
+// GetShots returns the Shots field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetShots() int {
+	if p == nil || p.Shots == nil {
+		return 0
+	}
+	return *p.Shots
+}
+
+// GetShotsAgainst returns the ShotsAgainst field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetShotsAgainst() int {
+	if p == nil || p.ShotsAgainst == nil {
+		return 0
+	}
+	return *p.ShotsAgainst
+}
+
+// GetShutouts returns the Shutouts field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetShutouts() int {
+	if p == nil || p.Shutouts == nil {
+		return 0
+	}
+	return *p.Shutouts
+}
+
+// GetTeamAbbrev returns the TeamAbbrev field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetTeamAbbrev() string {
+	if p == nil || p.TeamAbbrev == nil {
+		return ""
+	}
+	return *p.TeamAbbrev
+}
+
+// GetTOI returns the TOI field if it's non-nil, zero value otherwise.
+func (p *Player_Game) GetTOI() string {
+	if p == nil || p.TOI == nil {
+		return ""
+	}
+	return *p.TOI
+}
+
+// GetDefault returns the Default field if it's non-nil, zero value otherwise.
+func (p *Player_Game_CommonName) GetDefault() string {
+	if p == nil || p.Default == nil {
+		return ""
+	}
+	return *p.Default
+}
+
 // GetDefault returns the Default field if it's non-nil, zero value otherwise.
 func (p *Player_LastName) GetDefault() string {
 	if p == nil || p.Default == nil {
@@ -473,6 +713,14 @@ func (p *Player_Total) GetGamesPlayed() int {
 	return *p.GamesPlayed
 }
 
+// GetGamesStarted returns the GamesStarted field if it's non-nil, zero value otherwise.
+func (p *Player_Total) GetGamesStarted() int {
+	if p == nil || p.GamesStarted == nil {
+		return 0
+	}
+	return *p.GamesStarted
+}
+
 // GetGameTypeId returns the GameTypeId field if it's non-nil, zero value otherwise.
 func (p *Player_Total) GetGameTypeId() int {
 	if p == nil || p.GameTypeId == nil {
@@ -497,6 +745,22 @@ func (p *Player_Total) GetGoals() int {
 	return *p.Goals
 }
 
+// GetGoalsAgainst returns the GoalsAgainst field if it's non-nil, zero value otherwise.
+func (p *Player_Total) GetGoalsAgainst() int {
+	if p == nil || p.GoalsAgainst == nil {
+		return 0
+	}
+	return *p.GoalsAgainst
+}
+
+// GetGoalsAgainstAvg returns the GoalsAgainstAvg field.
+func (p *Player_Total) GetGoalsAgainstAvg() *float64 {
+	if p == nil {
+		return nil
+	}
+	return p.GoalsAgainstAvg
+}
+
 // GetLeagueAbbrev returns the LeagueAbbrev field if it's non-nil, zero value otherwise.
 func (p *Player_Total) GetLeagueAbbrev() string {
 	if p == nil || p.LeagueAbbrev == nil {
@@ -505,12 +769,28 @@ func (p *Player_Total) GetLeagueAbbrev() string {
 	return *p.LeagueAbbrev
 }
 
+// GetLosses returns the Losses field if it's non-nil, zero value otherwise.
+func (p *Player_Total) GetLosses() int {
+	if p == nil || p.Losses == nil {
+		return 0
+	}
+	return *p.Losses
+}
+
 // GetOTGoals returns the OTGoals field if it's non-nil, zero value otherwise.
 func (p *Player_Total) GetOTGoals() int {
 	if p == nil || p.OTGoals == nil {
 		return 0
 	}
 	return *p.OTGoals
+}
+
+// GetOTLosses returns the OTLosses field if it's non-nil, zero value otherwise.
+func (p *Player_Total) GetOTLosses() int {
+	if p == nil || p.OTLosses == nil {
+		return 0
+	}
+	return *p.OTLosses
 }
 
 // GetPIM returns the PIM field if it's non-nil, zero value otherwise.
@@ -551,6 +831,14 @@ func (p *Player_Total) GetPowerPlayPoints() int {
 		return 0
 	}
 	return *p.PowerPlayPoints
+}
+
+// GetSavePctg returns the SavePctg field.
+func (p *Player_Total) GetSavePctg() *float64 {
+	if p == nil {
+		return nil
+	}
+	return p.SavePctg
 }
 
 // GetSeason returns the Season field if it's non-nil, zero value otherwise.
@@ -601,10 +889,50 @@ func (p *Player_Total) GetShots() int {
 	return *p.Shots
 }
 
+// GetShotsAgainst returns the ShotsAgainst field if it's non-nil, zero value otherwise.
+func (p *Player_Total) GetShotsAgainst() int {
+	if p == nil || p.ShotsAgainst == nil {
+		return 0
+	}
+	return *p.ShotsAgainst
+}
+
+// GetShutouts returns the Shutouts field if it's non-nil, zero value otherwise.
+func (p *Player_Total) GetShutouts() int {
+	if p == nil || p.Shutouts == nil {
+		return 0
+	}
+	return *p.Shutouts
+}
+
 // GetTeamName returns the TeamName field.
 func (p *Player_Total) GetTeamName() *Player_FullTeamName {
 	if p == nil {
 		return nil
 	}
 	return p.TeamName
+}
+
+// GetTies returns the Ties field if it's non-nil, zero value otherwise.
+func (p *Player_Total) GetTies() int {
+	if p == nil || p.Ties == nil {
+		return 0
+	}
+	return *p.Ties
+}
+
+// GetTimeOnIce returns the TimeOnIce field if it's non-nil, zero value otherwise.
+func (p *Player_Total) GetTimeOnIce() string {
+	if p == nil || p.TimeOnIce == nil {
+		return ""
+	}
+	return *p.TimeOnIce
+}
+
+// GetWins returns the Wins field if it's non-nil, zero value otherwise.
+func (p *Player_Total) GetWins() int {
+	if p == nil || p.Wins == nil {
+		return 0
+	}
+	return *p.Wins
 }

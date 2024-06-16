@@ -9,6 +9,8 @@
 
 package nhl
 
+import "testing"
+
 func TestPlayer_GetBirthCity(tt *testing.T) {
 	p := &Player{}
 	p.GetBirthCity()
@@ -68,6 +70,16 @@ func TestPlayer_GetCurrentTeamId(tt *testing.T) {
 	p.GetCurrentTeamId()
 	p = nil
 	p.GetCurrentTeamId()
+}
+
+func TestPlayer_GetCurrentTeamRoster(tt *testing.T) {
+	zeroValue := []*Player{}
+	p := &Player{CurrentTeamRoster: zeroValue}
+	p.GetCurrentTeamRoster()
+	p = &Player{}
+	p.GetCurrentTeamRoster()
+	p = nil
+	p.GetCurrentTeamRoster()
 }
 
 func TestPlayer_GetDraftDetails(tt *testing.T) {
@@ -168,6 +180,16 @@ func TestPlayer_GetIsActive(tt *testing.T) {
 	p.GetIsActive()
 }
 
+func TestPlayer_GetLast5Games(tt *testing.T) {
+	zeroValue := []*Player_Game{}
+	p := &Player{Last5Games: zeroValue}
+	p.GetLast5Games()
+	p = &Player{}
+	p.GetLast5Games()
+	p = nil
+	p.GetLast5Games()
+}
+
 func TestPlayer_GetLastName(tt *testing.T) {
 	p := &Player{}
 	p.GetLastName()
@@ -175,14 +197,14 @@ func TestPlayer_GetLastName(tt *testing.T) {
 	p.GetLastName()
 }
 
-func TestPlayer_GetPlayerID(tt *testing.T) {
+func TestPlayer_GetPlayerId(tt *testing.T) {
 	var zeroValue int
-	p := &Player{PlayerID: &zeroValue}
-	p.GetPlayerID()
+	p := &Player{PlayerId: &zeroValue}
+	p.GetPlayerId()
 	p = &Player{}
-	p.GetPlayerID()
+	p.GetPlayerId()
 	p = nil
-	p.GetPlayerID()
+	p.GetPlayerId()
 }
 
 func TestPlayer_GetPlayerSlug(tt *testing.T) {
@@ -497,6 +519,277 @@ func TestPlayer_FullTeamName_GetSV(tt *testing.T) {
 	p.GetSV()
 }
 
+func TestPlayer_Game_GetAssists(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{Assists: &zeroValue}
+	p.GetAssists()
+	p = &Player_Game{}
+	p.GetAssists()
+	p = nil
+	p.GetAssists()
+}
+
+func TestPlayer_Game_GetCommonName(tt *testing.T) {
+	p := &Player_Game{}
+	p.GetCommonName()
+	p = nil
+	p.GetCommonName()
+}
+
+func TestPlayer_Game_GetDecision(tt *testing.T) {
+	var zeroValue string
+	p := &Player_Game{Decision: &zeroValue}
+	p.GetDecision()
+	p = &Player_Game{}
+	p.GetDecision()
+	p = nil
+	p.GetDecision()
+}
+
+func TestPlayer_Game_GetGameDate(tt *testing.T) {
+	var zeroValue string
+	p := &Player_Game{GameDate: &zeroValue}
+	p.GetGameDate()
+	p = &Player_Game{}
+	p.GetGameDate()
+	p = nil
+	p.GetGameDate()
+}
+
+func TestPlayer_Game_GetGameID(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{GameID: &zeroValue}
+	p.GetGameID()
+	p = &Player_Game{}
+	p.GetGameID()
+	p = nil
+	p.GetGameID()
+}
+
+func TestPlayer_Game_GetGamesStarted(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{GamesStarted: &zeroValue}
+	p.GetGamesStarted()
+	p = &Player_Game{}
+	p.GetGamesStarted()
+	p = nil
+	p.GetGamesStarted()
+}
+
+func TestPlayer_Game_GetGameWinningGoals(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{GameWinningGoals: &zeroValue}
+	p.GetGameWinningGoals()
+	p = &Player_Game{}
+	p.GetGameWinningGoals()
+	p = nil
+	p.GetGameWinningGoals()
+}
+
+func TestPlayer_Game_GetGoals(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{Goals: &zeroValue}
+	p.GetGoals()
+	p = &Player_Game{}
+	p.GetGoals()
+	p = nil
+	p.GetGoals()
+}
+
+func TestPlayer_Game_GetGoalsAgainst(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{GoalsAgainst: &zeroValue}
+	p.GetGoalsAgainst()
+	p = &Player_Game{}
+	p.GetGoalsAgainst()
+	p = nil
+	p.GetGoalsAgainst()
+}
+
+func TestPlayer_Game_GetHomeRoadFlag(tt *testing.T) {
+	var zeroValue string
+	p := &Player_Game{HomeRoadFlag: &zeroValue}
+	p.GetHomeRoadFlag()
+	p = &Player_Game{}
+	p.GetHomeRoadFlag()
+	p = nil
+	p.GetHomeRoadFlag()
+}
+
+func TestPlayer_Game_GetOpponentAbbrev(tt *testing.T) {
+	var zeroValue string
+	p := &Player_Game{OpponentAbbrev: &zeroValue}
+	p.GetOpponentAbbrev()
+	p = &Player_Game{}
+	p.GetOpponentAbbrev()
+	p = nil
+	p.GetOpponentAbbrev()
+}
+
+func TestPlayer_Game_GetOpponentCommonName(tt *testing.T) {
+	p := &Player_Game{}
+	p.GetOpponentCommonName()
+	p = nil
+	p.GetOpponentCommonName()
+}
+
+func TestPlayer_Game_GetOTGoals(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{OTGoals: &zeroValue}
+	p.GetOTGoals()
+	p = &Player_Game{}
+	p.GetOTGoals()
+	p = nil
+	p.GetOTGoals()
+}
+
+func TestPlayer_Game_GetPIM(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{PIM: &zeroValue}
+	p.GetPIM()
+	p = &Player_Game{}
+	p.GetPIM()
+	p = nil
+	p.GetPIM()
+}
+
+func TestPlayer_Game_GetPlusMinus(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{PlusMinus: &zeroValue}
+	p.GetPlusMinus()
+	p = &Player_Game{}
+	p.GetPlusMinus()
+	p = nil
+	p.GetPlusMinus()
+}
+
+func TestPlayer_Game_GetPoints(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{Points: &zeroValue}
+	p.GetPoints()
+	p = &Player_Game{}
+	p.GetPoints()
+	p = nil
+	p.GetPoints()
+}
+
+func TestPlayer_Game_GetPowerPlayGoals(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{PowerPlayGoals: &zeroValue}
+	p.GetPowerPlayGoals()
+	p = &Player_Game{}
+	p.GetPowerPlayGoals()
+	p = nil
+	p.GetPowerPlayGoals()
+}
+
+func TestPlayer_Game_GetPowerPlayPoints(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{PowerPlayPoints: &zeroValue}
+	p.GetPowerPlayPoints()
+	p = &Player_Game{}
+	p.GetPowerPlayPoints()
+	p = nil
+	p.GetPowerPlayPoints()
+}
+
+func TestPlayer_Game_GetSavePctg(tt *testing.T) {
+	p := &Player_Game{}
+	p.GetSavePctg()
+	p = nil
+	p.GetSavePctg()
+}
+
+func TestPlayer_Game_GetShifts(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{Shifts: &zeroValue}
+	p.GetShifts()
+	p = &Player_Game{}
+	p.GetShifts()
+	p = nil
+	p.GetShifts()
+}
+
+func TestPlayer_Game_GetShorthandedGoals(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{ShorthandedGoals: &zeroValue}
+	p.GetShorthandedGoals()
+	p = &Player_Game{}
+	p.GetShorthandedGoals()
+	p = nil
+	p.GetShorthandedGoals()
+}
+
+func TestPlayer_Game_GetShorthandedPoints(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{ShorthandedPoints: &zeroValue}
+	p.GetShorthandedPoints()
+	p = &Player_Game{}
+	p.GetShorthandedPoints()
+	p = nil
+	p.GetShorthandedPoints()
+}
+
+func TestPlayer_Game_GetShots(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{Shots: &zeroValue}
+	p.GetShots()
+	p = &Player_Game{}
+	p.GetShots()
+	p = nil
+	p.GetShots()
+}
+
+func TestPlayer_Game_GetShotsAgainst(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{ShotsAgainst: &zeroValue}
+	p.GetShotsAgainst()
+	p = &Player_Game{}
+	p.GetShotsAgainst()
+	p = nil
+	p.GetShotsAgainst()
+}
+
+func TestPlayer_Game_GetShutouts(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Game{Shutouts: &zeroValue}
+	p.GetShutouts()
+	p = &Player_Game{}
+	p.GetShutouts()
+	p = nil
+	p.GetShutouts()
+}
+
+func TestPlayer_Game_GetTeamAbbrev(tt *testing.T) {
+	var zeroValue string
+	p := &Player_Game{TeamAbbrev: &zeroValue}
+	p.GetTeamAbbrev()
+	p = &Player_Game{}
+	p.GetTeamAbbrev()
+	p = nil
+	p.GetTeamAbbrev()
+}
+
+func TestPlayer_Game_GetTOI(tt *testing.T) {
+	var zeroValue string
+	p := &Player_Game{TOI: &zeroValue}
+	p.GetTOI()
+	p = &Player_Game{}
+	p.GetTOI()
+	p = nil
+	p.GetTOI()
+}
+
+func TestPlayer_Game_CommonName_GetDefault(tt *testing.T) {
+	var zeroValue string
+	p := &Player_Game_CommonName{Default: &zeroValue}
+	p.GetDefault()
+	p = &Player_Game_CommonName{}
+	p.GetDefault()
+	p = nil
+	p.GetDefault()
+}
+
 func TestPlayer_LastName_GetDefault(tt *testing.T) {
 	var zeroValue string
 	p := &Player_LastName{Default: &zeroValue}
@@ -544,6 +837,16 @@ func TestPlayer_Total_GetGamesPlayed(tt *testing.T) {
 	p.GetGamesPlayed()
 }
 
+func TestPlayer_Total_GetGamesStarted(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Total{GamesStarted: &zeroValue}
+	p.GetGamesStarted()
+	p = &Player_Total{}
+	p.GetGamesStarted()
+	p = nil
+	p.GetGamesStarted()
+}
+
 func TestPlayer_Total_GetGameTypeId(tt *testing.T) {
 	var zeroValue int
 	p := &Player_Total{GameTypeId: &zeroValue}
@@ -574,6 +877,23 @@ func TestPlayer_Total_GetGoals(tt *testing.T) {
 	p.GetGoals()
 }
 
+func TestPlayer_Total_GetGoalsAgainst(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Total{GoalsAgainst: &zeroValue}
+	p.GetGoalsAgainst()
+	p = &Player_Total{}
+	p.GetGoalsAgainst()
+	p = nil
+	p.GetGoalsAgainst()
+}
+
+func TestPlayer_Total_GetGoalsAgainstAvg(tt *testing.T) {
+	p := &Player_Total{}
+	p.GetGoalsAgainstAvg()
+	p = nil
+	p.GetGoalsAgainstAvg()
+}
+
 func TestPlayer_Total_GetLeagueAbbrev(tt *testing.T) {
 	var zeroValue string
 	p := &Player_Total{LeagueAbbrev: &zeroValue}
@@ -584,6 +904,16 @@ func TestPlayer_Total_GetLeagueAbbrev(tt *testing.T) {
 	p.GetLeagueAbbrev()
 }
 
+func TestPlayer_Total_GetLosses(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Total{Losses: &zeroValue}
+	p.GetLosses()
+	p = &Player_Total{}
+	p.GetLosses()
+	p = nil
+	p.GetLosses()
+}
+
 func TestPlayer_Total_GetOTGoals(tt *testing.T) {
 	var zeroValue int
 	p := &Player_Total{OTGoals: &zeroValue}
@@ -592,6 +922,16 @@ func TestPlayer_Total_GetOTGoals(tt *testing.T) {
 	p.GetOTGoals()
 	p = nil
 	p.GetOTGoals()
+}
+
+func TestPlayer_Total_GetOTLosses(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Total{OTLosses: &zeroValue}
+	p.GetOTLosses()
+	p = &Player_Total{}
+	p.GetOTLosses()
+	p = nil
+	p.GetOTLosses()
 }
 
 func TestPlayer_Total_GetPIM(tt *testing.T) {
@@ -642,6 +982,13 @@ func TestPlayer_Total_GetPowerPlayPoints(tt *testing.T) {
 	p.GetPowerPlayPoints()
 	p = nil
 	p.GetPowerPlayPoints()
+}
+
+func TestPlayer_Total_GetSavePctg(tt *testing.T) {
+	p := &Player_Total{}
+	p.GetSavePctg()
+	p = nil
+	p.GetSavePctg()
 }
 
 func TestPlayer_Total_GetSeason(tt *testing.T) {
@@ -701,9 +1048,59 @@ func TestPlayer_Total_GetShots(tt *testing.T) {
 	p.GetShots()
 }
 
+func TestPlayer_Total_GetShotsAgainst(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Total{ShotsAgainst: &zeroValue}
+	p.GetShotsAgainst()
+	p = &Player_Total{}
+	p.GetShotsAgainst()
+	p = nil
+	p.GetShotsAgainst()
+}
+
+func TestPlayer_Total_GetShutouts(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Total{Shutouts: &zeroValue}
+	p.GetShutouts()
+	p = &Player_Total{}
+	p.GetShutouts()
+	p = nil
+	p.GetShutouts()
+}
+
 func TestPlayer_Total_GetTeamName(tt *testing.T) {
 	p := &Player_Total{}
 	p.GetTeamName()
 	p = nil
 	p.GetTeamName()
+}
+
+func TestPlayer_Total_GetTies(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Total{Ties: &zeroValue}
+	p.GetTies()
+	p = &Player_Total{}
+	p.GetTies()
+	p = nil
+	p.GetTies()
+}
+
+func TestPlayer_Total_GetTimeOnIce(tt *testing.T) {
+	var zeroValue string
+	p := &Player_Total{TimeOnIce: &zeroValue}
+	p.GetTimeOnIce()
+	p = &Player_Total{}
+	p.GetTimeOnIce()
+	p = nil
+	p.GetTimeOnIce()
+}
+
+func TestPlayer_Total_GetWins(tt *testing.T) {
+	var zeroValue int
+	p := &Player_Total{Wins: &zeroValue}
+	p.GetWins()
+	p = &Player_Total{}
+	p.GetWins()
+	p = nil
+	p.GetWins()
 }
